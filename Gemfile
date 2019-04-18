@@ -8,6 +8,7 @@ gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'simple_form'
 gem 'pry'
 gem 'pry-rails'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
