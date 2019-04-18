@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root 'admin/products#index'
+  root 'admin/products#new'
 
   namespace :admin do
-    resource :products
+    resources :products
   end
 end
