@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_is_admin
 
   def index
     @products = Product.all
@@ -37,6 +39,13 @@ class Admin::ProductsController < ApplicationController
     product.destroy
     redirect_to admin_products_path
     flash[:alert] = "已删除"
+  end
+
+  def require_is_admin
+    if current_user.is_admin?
+      # redirect_to products_path
+      flash.alert = "您没有权限"
+    end
   end
 
 
