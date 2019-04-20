@@ -25,7 +25,7 @@
               <span class="text-warning">暂无图片</span>
               <% end %>
             </td>
-            <td><%= link_to p.title,'#' %></td>
+            <td><%= link_to p.title, admin_product_path(p) %></td>
             <td><%= p.description %></td>
             <td><%= p.price %></td>
             <td><%= p.repertory %></td>
