@@ -5,6 +5,7 @@
       <thead>
         <tr>
           <th>编号</th>
+          <th>商品图片</th>
           <th>标题</th>
           <th>描述</th>
           <th>价格</th>
@@ -16,6 +17,14 @@
         <% @products.each_with_index do |p, index| %>
           <tr>
             <td><%= index+1 %></td>
+
+            <td>
+              <% if p.avatar.present? %>
+              <%= image_tag p.avatar.thumb.url %>
+              <% else %>
+              <span class="text-warning">暂无图片</span>
+              <% end %>
+            </td>
             <td><%= link_to p.title,'#' %></td>
             <td><%= p.description %></td>
             <td><%= p.price %></td>
