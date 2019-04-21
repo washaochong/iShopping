@@ -5,6 +5,13 @@
 #front_products .product-list {
   margin-right: 81px;
 }
+
+#front_products .product-content{
+  p {
+    text-align: center;
+    margin: 10px 0 0 0;
+  }
+}
 /********************************前台主页-end********************************/
 /********************************商品show-start********************************/
 #product_show {
@@ -21,13 +28,10 @@
     border: 1px solid #ccc;
     display: inline-block;
     vertical-align: bottom;
+    text-align: center;
     .collectZone-top{
       width: 50px;
       height: 24px;
-      i{
-        width: 20px;
-        height: 20px;
-      }
     }
   }
 }
