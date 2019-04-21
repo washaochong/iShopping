@@ -1,12 +1,17 @@
 <div class="container">
   <div class="row">
     <h4>商品详情展示</h4>
-    <%= image_tag @product.avatar.thumb.url %>
-    <%= @product.title %>
-    <%= @product.description %>
-    <%= @product.price %>
-    <%= @product.repertory %>
-
+    <%= image_tag @product.avatar.thumb.url if @product.avatar.present? %><br>
+    <%= @product.title %><br>
+    <%= @product.description %><br>
+    <%= @product.price %><br>
+    <%= @product.repertory %><br>
+    <% if @product.publish %>
+      <span class="text-warning">已上架</span>
+      <%= link_to "下架", admin_product_unpublish_path(@product), class:"btn btn-sm btn-danger" %>
+    <% else %>
+      <span class="text-muted">已下架</span>
+      <%= link_to "上架", admin_product_publish_path(@product), class:"btn btn-sm btn-success" %>
+    <% end %>
   </div>
-
 </div>

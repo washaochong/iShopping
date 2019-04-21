@@ -45,6 +45,18 @@ class Admin::ProductsController < ApplicationController
     flash[:alert] = "已删除"
   end
 
+  def publish
+    product = Product.find params[:product_id]
+    product.update(publish: true)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def unpublish
+    product = Product.find params[:product_id]
+    product.update(publish: false)
+    redirect_back(fallback_location: root_path)
+  end
+
   def require_is_admin
     if current_user.is_admin?
       # redirect_to products_path

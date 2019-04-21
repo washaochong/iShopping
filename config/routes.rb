@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'admin/products#index'
+  resources :products
 
   namespace :admin do
-    resources :products
+    resources :products do
+      get :publish
+      get :unpublish
+    end
   end
 end
