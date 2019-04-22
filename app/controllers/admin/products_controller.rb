@@ -58,8 +58,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def require_is_admin
-    if current_user.is_admin?
-      # redirect_to products_path
+    if !current_user.is_admin
+      redirect_to products_path
       flash.alert = "您没有权限"
     end
   end

@@ -5,7 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  def is_admin?
-    is_admin == false
-  end
 end
