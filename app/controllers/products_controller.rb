@@ -8,4 +8,7 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
   end
 
+  def add_to_cart
+  end
+
 end
