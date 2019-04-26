@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'admin/products#index'
+  root 'products#index'
   resources :products do
     member do
       post :add_to_cart
