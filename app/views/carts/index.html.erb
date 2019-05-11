@@ -30,7 +30,7 @@
             </td>
             <td>
               <%= link_to "移入收藏夹" %><br>
-              <%= link_to "删除" %>
+              <%= link_to "删除", cart_item_path(cart_item.id), method: :delete %>
             </td>
           </tr>
         <% end %>
