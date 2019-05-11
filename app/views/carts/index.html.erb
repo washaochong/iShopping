@@ -11,20 +11,22 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_items.each do |cart_item|  %>
+        <% current_cart.cart_items.each do |cart_item|  %>
           <tr>
             <td>
               <%= image_tag cart_item.product.avatar.mini.url %>
               <%= cart_item.product.title %>
             </td>
             <td>
-              ￥ <%= cart_item.product.price %>
+              ￥
+              <%= cart_item.product.price %>
             </td>
             <td>
               <%= cart_item.quantity %>
             </td>
             <td>
-              ￥ <%= cart_item.quantity * cart_item.product.price %>
+              ￥
+              <%= cart_item.quantity * cart_item.product.price %>
             </td>
             <td>
               <%= link_to "移入收藏夹" %><br>
@@ -32,7 +34,15 @@
             </td>
           </tr>
         <% end %>
+
       </tbody>
     </table>
+    <hr>
+    <div class="row pull-right">
+      <span>应付总额: ￥ ***
+      </span>
+      <%= link_to "下单","#",class:"btn btn-info " %>
+    </div>
+
   </div>
 </div>
