@@ -37,12 +37,14 @@
 
       </tbody>
     </table>
-    <hr>
-    <div class="row pull-right">
-      <span>应付总额: ￥ ***
-      </span>
-      <%= link_to "下单","#",class:"btn btn-info " %>
-    </div>
 
+    <hr>
+
+    <div class="row pull-right">
+      <span class="text-muted">应付总额: ￥
+        <%= current_cart.total_price %>
+      </span>
+      <%= link_to "下单", "#", class:"btn btn-info " %>
+    </div>
   </div>
 </div>
