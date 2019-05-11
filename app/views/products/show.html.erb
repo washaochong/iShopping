@@ -10,8 +10,12 @@
       <p>数量
         <%= @product.repertory %></p>
       <div class="btns">
+        <% if @product.repertory != 0 %>
         <button type="button" class="btn btn-default btn-lg">立即购买</button>
         <%= link_to "加入购物车", add_to_cart_product_path(@product), method: :post, class:"btn btn-warning btn-lg" %>
+        <% else %>
+        <span class="text-danger">暂无库存</span>
+        <% end %>
         <div class="collectZone">
           <div class="collectZone-top">
             <i class="fa fa-star"></i>

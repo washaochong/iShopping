@@ -5,7 +5,12 @@ class CartItemsController < ApplicationController
 
   def update
     cart_item = CartItem.find params[:id]
-    cart_item.update cart_item_params
+    quantity = params[:cart_item][:quantity]
+    if quantity.to_i <= cart_item.product.repertory.to_i
+      cart_item.update cart_item_params
+    else
+      flash[:alert] = "库存不足，所购商品数量不能超过#{cart_item.product.repertory}"
+    end
     redirect_back(fallback_location: root_path)
   end
 
