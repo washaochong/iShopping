@@ -9,6 +9,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [200, 200]
   end
 
+  version :mini do
+    process resize_to_fill: [100, 100]
+  end
+  
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog

@@ -10,9 +10,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to "#" do %>
+          <%= link_to cart_path(current_cart) do %>
             购物车
-            <i class="fa fa-shopping-cart"></i> <span class="badge"><%= current_cart.products.count %></span>
+            <i class="fa fa-shopping-cart"></i> <span class="badge badge-danger"><%= current_cart.products.count %></span>
           <% end %>
         </li>
         <% if !user_signed_in? %>

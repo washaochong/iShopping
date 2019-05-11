@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品信息</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item|  %>
+          <tr>
+            <td>
+              <%= image_tag cart_item.product.avatar.mini.url %>
+              <%= cart_item.product.title %>
+            </td>
+            <td>
+              ￥ <%= cart_item.product.price %>
+            </td>
+            <td>
+              <%= cart_item.quantity %>
+            </td>
+            <td>
+              ￥ <%= cart_item.quantity * cart_item.product.price %>
+            </td>
+            <td>
+              <%= link_to "移入收藏夹" %><br>
+              <%= link_to "删除" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
