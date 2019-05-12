@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :carts
   resources :cart_items
+  resources :addresses
 
   resources :products do
     member do

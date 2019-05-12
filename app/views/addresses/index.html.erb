@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <% @addresses.each do |address| %>
+      <div class="address-all">
+        <div class="address">
+          <p><%= address.shipping_name %></p>
+          <p><%= address.phone %></p>
+          <p><%= address.shipping_address %></p>
+          <%= link_to "修改", edit_address_path(address) %>
+        </div>
+      </div>
+    <% end %>
+    <div class="address">
+      <%= link_to "新地址", new_address_path %>
+    </div>
+  </div>
+</div>

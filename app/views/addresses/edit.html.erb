@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <%= simple_form_for @address do |f| %>
+    <%= f.input :shipping_name, label:"收货人" %>
+    <%= f.input :shipping_address, label:"收货地址" %>
+    <%= f.input :phone, label:"联系电话" %>
+    <%= f.submit "保存" %>
+    <% end %>
+  </div>
+</div>
