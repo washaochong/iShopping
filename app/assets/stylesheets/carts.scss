@@ -1,3 +1,29 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.checkout-addresses .address{
+  width: 270px;;
+  height: 180px;
+  border: 1px solid #aaa;
+  display: inline-block;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  padding: 10px 20px 10px 20px;
+}
+/*****************************商品信息样式-start**********************/
+.cart-product-list{
+  margin-top: 100px;
+}
+.cart-product-list tbody tr td {
+  border-top: none;
+}
+
+.cart-product-list thead tr{
+  background-color: #efefef;
+}
+
+.cart-product-list thead tr th{
+  border-bottom: 1px solid #ddd;
+}
+/*****************************商品信息样式-end**********************/

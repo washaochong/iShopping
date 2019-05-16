@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <h3>订单详情</h3>
+    <br>
+    <h4>收货信息</h4>
+    <%= @order.address.shipping_name %><br>
+    <%= @order.address.phone %><br>
+    <%= @order.address.shipping_address %><br>
+
+    <br>
+    <table class="product-list table">
+      <tbody>
+        <tr>
+          <td>商品信息</td>
+          <td>单价</td>
+          <td>数量</td>
+          <td>小计</td>
+          <td>实付</td>
+        </tr>
+        <% @order.product_lists.each do |product_list| %>
+          <tr>
+            <td><%= image_tag product_list.picture %></td>
+            <td><%= product_list.product_name %></td>
+            <td><%= product_list.product_quantity %></td>
+            <td><%= product_list.product_price.to_i %>元</td>
+            <td><%= product_list.product_quantity * product_list.product_price.to_i %>元</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr>
+    <div class="pull-right">
+      应付总额：
+      <span class="lead text-danger"><strong><%= @order.total_money %></strong></span>元
+    </div>
+    <br>
+    <hr>
+    <div class="row pull-right">
+      <%= link_to "微信支付", "#", class:"btn btn-sm btn-success" %>
+      <%= link_to "支付宝支付", "#", class:"btn btn-sm btn-success" %>
+    </div>
+  </div>
+</div>

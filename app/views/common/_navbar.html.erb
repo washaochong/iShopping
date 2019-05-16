@@ -30,7 +30,10 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to "我的收货地址", addresses_path(user_id: current_user.id) %>
+                <%= link_to "我的订单", account_orders_path %>
+              </li>
+              <li>
+                <%= link_to "管理收货地址", addresses_path(user_id: current_user.id) %>
               </li>
               <li>
                 <%= link_to "后台入口", admin_products_path %>

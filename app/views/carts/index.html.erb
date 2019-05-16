@@ -50,7 +50,7 @@
         <span class="text-muted">应付总额: ￥
           <%= current_cart.total_price %>
         </span>
-        <%= link_to "下单", "#", class:"btn btn-info " %>
+        <%= link_to "去结算", checkout_carts_path, method: :post, class:"btn btn-info " %>
       </div>
     </div>
     <hr>

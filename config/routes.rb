@@ -2,9 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
 
-  resources :carts
   resources :cart_items
   resources :addresses
+
+  resources :orders do
+    resources :product_lists
+  end
+
+  resources :carts do
+    collection do
+      post :checkout
+    end
+  end
 
   resources :products do
     member do
@@ -18,4 +27,9 @@ Rails.application.routes.draw do
       get :unpublish
     end
   end
+
+  namespace :account do
+    resources :orders
+  end
+
 end

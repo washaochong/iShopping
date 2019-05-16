@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h3>我的订单</h3>
+    <% @orders.each do |order| %>
+    <div class="order-address">
+      <%= order.created_at %>
+      <span>|</span>
+      <%= order.address.shipping_name %>
+      <span>|</span>
+      <span>实付金额：</span>
+      <%= order.total_money %>元
+    </div>
+    <div class="order-product">
+      <% order.product_lists.each do |product_list| %>
+      <%= image_tag product_list.picture %>
+      <%= product_list.product_name %><br>
+      <% end %>
+    </div>
+    <br>
+    <% end %>
+  </div>
+</div>

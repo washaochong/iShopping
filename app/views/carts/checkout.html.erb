@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <% total = 0 %>
+    <%= simple_form_for Order.new do |f| %>
+    <p>收获地址</p>
+    <div class="checkout-addresses">
+      <select class="address-single form-control" name="address_id">
+        <% @addresses.each do |address| %>
+          <option value=<%= address.id %>>
+            <%= address.shipping_name %>
+            <span>|</span>
+            <%= address.phone %>
+            <span>|</span>
+            <%= address.shipping_address %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+    <br>
+    <!-- <hr> -->
+    <table class="cart-product-list table">
+      <thead>
+        <tr>
+          <th>商品信息</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+          <th>实付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_cart.products.each do |product| %>
+          <tr>
+            <td><%= image_tag product.avatar.least.url.to_s %>
+              <%= product.title %></td>
+            <td>￥<%= product.price.to_i %></td>
+            <td><%= product_quantity(product) %></td>
+            <td>￥<%= product.price.to_i * product_quantity(product) %></td>
+            <td>￥<%= product.price.to_i * product_quantity(product) %></td>
+          </tr>
+          <% total += product.price.to_i * product_quantity(product) %>
+        <% end %>
+      </tbody>
+    </table>
+    <hr>
+    <div class="pull-right">
+      <p>应付总额: <%= total %>元</p>
+      <%= f.hidden_field :total_money, value:"#{ total }" %>
+      <%= f.submit "生成订单", class:"btn btn-danger" %>
+    </div>
+  <% end %>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+  $('.address-single').select2();
+});
+</script>

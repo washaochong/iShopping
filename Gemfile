@@ -12,6 +12,7 @@ gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem "select2-rails"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
