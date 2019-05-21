@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :addresses
 
   resources :orders do
+    member do
+      post :pay_with_wechat
+      post :pay_with_alipay
+    end
     resources :product_lists
   end
 

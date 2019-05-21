@@ -25,6 +25,22 @@ class OrdersController < ApplicationController
     @order = Order.find_by(token: params[:id])
   end
 
+  def pay_with_wechat
+    @order = Order.find_by_token params[:id]
+    @order.pay!
+    @order.set_payment_method!("微信")
+    flash[:notice] = "用微信支付成功"
+    redirect_to account_orders_path
+  end
+
+  def pay_with_alipay
+    @order = Order.find_by_token params[:id]
+    @order.pay!
+    @order.set_payment_method!("支付宝宝")
+    flash[:notice] = "用支付宝支付成功"
+    redirect_to account_orders_path
+  end
+
   private
   def order_params
     params.require(:order).permit(:total_money)
