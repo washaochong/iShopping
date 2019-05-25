@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
         product_list.product_quantity = cart_item.quantity
         product_list.save
       end
+      OrderMailer.notify_order_placed(order).deliver!
       redirect_to order_path(order.token)
       flash[:notice] = "已生成订单！"
     end

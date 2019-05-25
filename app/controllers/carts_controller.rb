@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   end
 
   def checkout
+    @order = Order.new
     @addresses = current_user.addresses
   end
 
