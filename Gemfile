@@ -14,6 +14,7 @@ gem "mini_magick"
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem "select2-rails"
 gem 'letter_opener', group: :development
+gem 'aasm'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

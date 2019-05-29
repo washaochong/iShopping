@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     member do
       post :pay_with_wechat
       post :pay_with_alipay
+      post :apply_to_cancel
     end
     resources :product_lists
   end
@@ -26,6 +27,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :orders do
+      member do
+        post :ship
+        post :deliver
+        post :return_good
+        post :cancel
+      end
+    end
     resources :products do
       get :publish
       get :unpublish

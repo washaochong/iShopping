@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_is_admin
+  before_action :require_admin
 
   def index
     @products = Product.all
@@ -57,14 +57,7 @@ class Admin::ProductsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def require_is_admin
-    if !current_user.is_admin
-      flash.alert = "您没有权限"
-      redirect_to products_path
-    end
-  end
-
-
+  
   private
   def product_params
     params.require(:product).permit(:title, :description, :price, :repertory, :avatar)

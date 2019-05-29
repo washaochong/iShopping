@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_090742) do
+ActiveRecord::Schema.define(version: 2019_05_25_034819) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_05_15_090742) do
     t.string "token"
     t.boolean "is_paid", default: false
     t.string "payment_method"
+    t.string "aasm_state", default: "order_placed"
+    t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
   create_table "product_lists", force: :cascade do |t|

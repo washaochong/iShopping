@@ -2,18 +2,33 @@
   <div class="row">
     <h3>我的订单</h3>
     <% @orders.each do |order| %>
-    <div class="order-address">
-      <%= order.created_at %>
-      <span>|</span>
-      <%= order.address.shipping_name %>
-      <span>|</span>
-      <span>实付金额：</span>
-      <%= order.total_money %>元
+    <div class="col-md-8" style="margin-bottom: 40px;">
+      <div class="order-address">
+        <%= order.created_at %>
+        <span>|</span>
+        <%= order.address.shipping_name %>
+        <span>|</span>
+        <span>实付金额：</span>
+        <%= order.total_money %>元
+      </div>
+      <div class="order-product ">
+        <% order.product_lists.each do |product_list| %>
+        <%= image_tag product_list.picture %>
+        <%= product_list.product_name %>
+        <%= product_list.product_quantity %><br>
+        <% end %>
+      </div>
     </div>
-    <div class="order-product">
-      <% order.product_lists.each do |product_list| %>
-      <%= image_tag product_list.picture %>
-      <%= product_list.product_name %><br>
+    <div class="col-md-4" style="margin-top: 50px;">
+      <span class="text-danger">
+        <%= render_order_state(order) %>
+      </span>
+      <br>
+      <%= link_to "查看详情", order_path(order.token) %><br>
+      <% if order.order_placed? || order.paid? %>
+      <%= link_to "取消订单", apply_to_cancel_order_path(order), method: :post, data:{ confirm: "你确定要取消订单吗？" } %>
+      <% elsif order.aasm_state = "order_cancelled" %>
+      <span class="text-muted">订单已取消</span>
       <% end %>
     </div>
     <br>

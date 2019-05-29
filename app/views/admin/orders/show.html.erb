@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <h4><%= @user.email %>的订单明细（<%= render_order_state(@order) %>）</h4>
+    <span>下单时间：<%= @order.created_at.to_s(:long) %></span>
+    <%= render "order_aasm_state", order: @order %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>商品信息</th>
+          <th>价格</th>
+          <th>数量</th>
+          <th>小计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @product_lists.each do |product_list| %>
+        <tr>
+          <td><%= product_list.product_name %></td>
+          <td><%= product_list.product_price %></td>
+          <td><%= product_list.product_quantity %></td>
+          <td><%= product_list.product_price * product_list.product_quantity %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
