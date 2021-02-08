@@ -9,7 +9,7 @@ gem 'simple_form'
 gem 'pry'
 gem 'pry-rails'
 gem 'devise'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem "mini_magick"
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem "select2-rails"
